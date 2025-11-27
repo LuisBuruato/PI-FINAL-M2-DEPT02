@@ -1,0 +1,1 @@
+select * from {{ source('raw','historial_pagos') }};

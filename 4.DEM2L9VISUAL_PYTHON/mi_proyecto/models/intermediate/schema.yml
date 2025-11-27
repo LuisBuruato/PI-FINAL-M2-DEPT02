@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: int_ordenes_con_usuarios
+    description: "Tabla intermedia combinando órdenes con datos de usuarios"
+    columns:
+      - name: id_orden
+        tests:
+          - unique
+          - not_null
+      - name: id_usuario
+        tests:
+          - not_null
+
+  - name: int_ordenes_productos
+    description: "Tabla intermedia combinando órdenes con productos y métodos de pago"
+    columns:
+      - name: id_orden
+        tests:
+          - not_null
+      - name: id_producto
+        tests:
+          - not_null
+

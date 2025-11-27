@@ -1,0 +1,12 @@
+services:
+  dbt:
+    image: dbt_ecommerce_sqlserver
+    container_name: dbt_ecommerce
+    command: ["run"]
+    volumes:
+      - .:/usr/app
+      - ./models:/usr/app/models
+      - ./dbt_project.yml:/usr/app/dbt_project.yml
+      - ./.dbt:/root/.dbt
+    working_dir: /usr/app
+

@@ -1,0 +1,37 @@
+digraph DW_Ecommerce {
+	fontsize=10 rankdir=LR
+	dim_cliente [label="dim_cliente
+PK: ClienteKey
+Nombre
+Email" color="#D5E8D4" shape=box style=filled]
+	dim_producto [label="dim_producto
+PK: ProductoKey
+NombreProducto
+Precio" color="#D5E8D4" shape=box style=filled]
+	dim_categoria [label="dim_categoria
+PK: CategoriaKey
+Nombre" color="#D5E8D4" shape=box style=filled]
+	dim_tiempo [label="dim_tiempo
+PK: TiempoKey
+Fecha
+Mes
+Año" color="#D5E8D4" shape=box style=filled]
+	dim_metodo_pago [label="dim_metodo_pago
+PK: MetodoPagoKey
+Nombre" color="#D5E8D4" shape=box style=filled]
+	dim_direccion [label="dim_direccion
+PK: DireccionKey
+Ciudad
+Estado" color="#D5E8D4" shape=box style=filled]
+	fact_ventas [label="fact_ventas
+Cantidad
+PrecioUnitario
+Subtotal
+Total" color="#F8CECC" shape=box style=filled]
+	dim_cliente -> fact_ventas [label="1:N"]
+	dim_producto -> fact_ventas [label="1:N"]
+	dim_categoria -> fact_ventas [label="1:N"]
+	dim_tiempo -> fact_ventas [label="1:N"]
+	dim_metodo_pago -> fact_ventas [label="1:N"]
+	dim_direccion -> fact_ventas [label="1:N"]
+}

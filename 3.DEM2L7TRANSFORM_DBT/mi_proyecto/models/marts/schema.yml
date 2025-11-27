@@ -1,0 +1,106 @@
+version: 2
+
+models:
+
+  # ---------------------
+  # Marts / Dimensiones
+  # ---------------------
+  - name: dim_categoria
+    description: "Dimensión de categorías"
+    columns:
+      - name: categoria_id
+        tests:
+          - unique
+          - not_null
+      - name: categoria_nombre
+        tests:
+          - not_null
+
+  - name: dim_cliente
+    description: "Dimensión de clientes"
+    columns:
+      - name: cliente_id
+        tests:
+          - unique
+          - not_null
+      - name: nombre
+        tests:
+          - not_null
+      - name: apellido
+        tests:
+          - not_null
+      - name: dni
+      - name: email
+        tests:
+          - not_null
+      - name: fecha_registro
+
+  - name: dim_producto
+    description: "Dimensión de productos"
+    columns:
+      - name: producto_id
+        tests:
+          - unique
+          - not_null
+      - name: nombre
+        tests:
+          - not_null
+      - name: categoria_id
+        tests:
+          - not_null
+
+  - name: dim_metodo_pago
+    description: "Dimensión de métodos de pago"
+    columns:
+      - name: metodo_pago_id
+        tests:
+          - unique
+          - not_null
+      - name: metodo_pago
+        tests:
+          - not_null
+
+  - name: dim_direccion
+    description: "Dimensión de direcciones"
+    columns:
+      - name: direccion_id
+        tests:
+          - unique
+          - not_null
+      - name: usuario_id
+        tests:
+          - not_null
+      - name: calle
+      - name: ciudad
+      - name: estado
+      - name: codigo_postal
+      - name: pais
+
+  # ---------------------
+  # Marts / Hechos
+  # ---------------------
+  - name: fact_ventas
+    description: "Tabla de hechos de ventas"
+    columns:
+      - name: id_venta
+        tests:
+          - unique
+          - not_null
+      - name: id_orden
+        tests:
+          - not_null
+      - name: id_producto
+        tests:
+          - not_null
+      - name: cantidad
+        tests:
+          - not_null
+      - name: total_venta
+        tests:
+          - not_null
+
+
+
+
+
+

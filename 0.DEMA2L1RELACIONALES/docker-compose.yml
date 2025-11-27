@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:14
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: ecommerce
+    ports:
+      - '5432:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+  etl:
+    build: .
+    depends_on:
+      - db
+    environment:
+      - DB_URI=postgresql://postgres:postgres@db:5432/ecommerce
+    volumes:
+      - .:/app
+    command: bash -c "python scripts/extract.py && python scripts/transform.py && python scripts/load.py"
+volumes:
+  pgdata:

@@ -1,0 +1,15 @@
+pandas
+matplotlib
+seaborn
+altair
+streamlit
+sqlalchemy
+pyodbc
+pandas
+matplotlib
+seaborn
+altair
+streamlit
+sqlalchemy
+pyodbc
+

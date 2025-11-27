@@ -1,0 +1,28 @@
+name: 'mi_proyecto'            # <- obligatorio, debe ser único
+version: '1.0.0'
+config-version: 2
+
+profile: 'mi_proyecto'         # <- debe coincidir con tu perfil en profiles.yml
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+snapshot-paths: ["snapshots"]
+target-path: "target"
+clean-targets: ["target", "dbt_packages"]
+
+models:
+  mi_proyecto:
+
+    staging:
+      +materialized: view       # staging = vistas
+
+    intermediate:
+      +materialized: view       # intermedios = vistas
+
+    marts:
+      +materialized: table      # modelos finales = tablas
+
+
+
+

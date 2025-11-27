@@ -1,0 +1,105 @@
+version: 2
+
+models:
+  - name: stg_productos
+    description: "Tabla staging de productos"
+    columns:
+      - name: id_producto
+        description: "ID del producto"
+        tests:
+          - not_null
+          - unique
+      - name: nombre_producto
+        description: "Nombre del producto"
+      - name: descripcion
+        description: "Descripción del producto"
+      - name: precio
+        description: "Precio del producto"
+      - name: stock
+        description: "Stock disponible"
+      - name: categoria_id
+        description: "ID de la categoría"
+
+  - name: stg_usuarios
+    description: "Tabla staging de usuarios"
+    columns:
+      - name: id_usuario
+        description: "ID del usuario"
+        tests:
+          - not_null
+          - unique
+      - name: nombre_usuario
+        description: "Nombre del usuario"
+      - name: email_usuario
+        description: "Email del usuario"
+      - name: fecha_registro
+        description: "Fecha de registro del usuario"
+
+  - name: stg_ordenes
+    description: "Tabla staging de órdenes"
+    columns:
+      - name: id_orden
+        description: "ID de la orden"
+        tests:
+          - not_null
+          - unique
+      - name: id_usuario
+        description: "ID del usuario asociado"
+      - name: fecha_orden
+        description: "Fecha de la orden"
+      - name: total_orden
+        description: "Total de la orden"
+
+  - name: stg_historial_pagos
+    description: "Tabla staging de historial de pagos"
+    columns:
+      - name: id_pago
+        description: "ID del pago"
+        tests:
+          - not_null
+          - unique
+      - name: id_orden
+        description: "ID de la orden asociada"
+        tests:
+          - not_null
+      - name: id_metodo_pago
+        description: "ID del método de pago"
+      - name: monto
+        description: "Monto del pago"
+      - name: fecha_pago
+        description: "Fecha del pago"
+
+  - name: stg_ordenes_metodos_pago
+    description: "Tabla staging de métodos de pago asociados a órdenes"
+    columns:
+      - name: id_orden
+        description: "ID de la orden"
+        tests:
+          - not_null
+      - name: id_metodo_pago
+        description: "ID del método de pago"
+        tests:
+          - not_null
+
+  - name: stg_resenas_productos
+    description: "Tabla staging de reseñas de productos"
+    columns:
+      - name: id_resena
+        description: "ID de la reseña"
+        tests:
+          - not_null
+          - unique
+      - name: id_usuario
+        description: "ID del usuario que hizo la reseña"
+      - name: id_producto
+        description: "ID del producto reseñado"
+      - name: calificacion
+        description: "Calificación del producto"
+      - name: comentario
+        description: "Comentario de la reseña"
+      - name: fecha_resena
+        description: "Fecha de la reseña"
+
+
+
+

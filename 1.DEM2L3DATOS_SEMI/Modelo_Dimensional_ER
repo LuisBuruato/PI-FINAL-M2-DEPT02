@@ -1,0 +1,38 @@
+digraph Modelo_Dimensional {
+	rankdir=TB size=10
+	DimTiempo [label="DimTiempo
+TiempoID (PK)
+Fecha
+Año
+Mes
+Día
+DíaSemana
+Semana" color=lightblue shape=box style=filled]
+	DimProducto [label="DimProducto
+ProductoID (PK)
+Nombre
+Precio
+CategoriaID (FK)" color=lightgreen shape=box style=filled]
+	DimCliente [label="DimCliente
+ClienteID (PK)
+Nombre
+Email
+Ciudad
+Estado" color=lightgreen shape=box style=filled]
+	DimCategoria [label="DimCategoria
+CategoriaID (PK)
+Nombre" color=lightgreen shape=box style=filled]
+	HechoVentas [label="HechoVentas
+VentaID (PK)
+OrdenID (FK)
+ProductoID (FK)
+ClienteID (FK)
+TiempoID (FK)
+Cantidad
+PrecioUnitario
+TotalLinea" color=orange shape=box style=filled]
+	DimTiempo -> HechoVentas [label=TiempoID]
+	DimProducto -> HechoVentas [label=ProductoID]
+	DimCliente -> HechoVentas [label=ClienteID]
+	DimCategoria -> DimProducto [label=CategoriaID]
+}
