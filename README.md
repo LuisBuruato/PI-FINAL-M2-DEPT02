@@ -11,6 +11,8 @@ Estructura:
 - SQL/: definiciones de tablas y consultas
 - tests/: notas y tests
 
+- 
+
 # Proyecto DBT
 1.	Objetivo del Proyecto El proyecto tiene como objetivo implementar un pipeline de transformación de datos para un escenario de ventas, utilizando DBT sobre SQL Server. Se incluye la limpieza y normalización de datos, la construcción de tablas de staging, dimensiones, hechos, y la implementación de Slowly Changing Dimensions (SCD) para el seguimiento histórico de usuarios.
 2.	Estructura de Carpetas y Modelos
